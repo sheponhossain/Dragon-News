@@ -30,7 +30,7 @@ const CategoryNews = () => {
     <div>
       <h1 className="font-bold">Dragon News Home</h1>
       {CategoryNewsData.map((news) => (
-        <NewsCard news={news}></NewsCard>
+        <NewsCard key={news.id} news={news}></NewsCard>
       ))}
     </div>
   );

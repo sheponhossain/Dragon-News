@@ -1,14 +1,16 @@
 import { FaEye, FaShareAlt, FaBookmark } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 const NewsCard = ({ news }) => {
-  const { title, author, thumbnail_url, rating, total_view, details } = news;
+  const { id, title, author, thumbnail_url, rating, total_view, details } =
+    news;
 
   return (
     <div className="bg-white shadow-lg rounded-lg p-4 mb-6">
       {/* Top Section */}
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex justify-between items-center mb-4 bg-base-200 p-4">
         {/* Author Info */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 ">
           <img
             src={author?.img}
             alt={author?.name}
@@ -38,9 +40,12 @@ const NewsCard = ({ news }) => {
       {/* Details */}
       <p className="text-gray-700 mb-3">
         {details.slice(0, 190)}...
-        <span className="text-blue-600 cursor-pointer font-semibold">
+        <Link
+          to={`/news-details/${id}`}
+          className="text-blue-600 cursor-pointer font-semibold"
+        >
           Read More
-        </span>
+        </Link>
       </p>
 
       {/* Footer Section */}

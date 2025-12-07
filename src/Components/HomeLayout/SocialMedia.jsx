@@ -8,17 +8,17 @@ const SocialMedia = () => {
     <div className="mt-8 font-bold text-xl">
       <p>Find Us On</p>
       <div className="grid grid-cols-1 ">
-        <button className="btn btn-outline  btn-primary font-bold text-accent">
+        <button className="btn btn-outline  btn-primary font-bold ">
           {' '}
           <LiaFacebookF size={20} />
           Facebook
         </button>
-        <button className="btn btn-outline  btn-primary font-bold text-accent">
+        <button className="btn btn-outline  btn-primary font-bold">
           {' '}
           <PiTwitterLogoFill size={20} />
           Twitter
         </button>
-        <button className="btn btn-outline  btn-primary font-bold text-accent">
+        <button className="btn btn-outline  btn-primary font-bold">
           {' '}
           <BsInstagram size={20} />
           Instagram

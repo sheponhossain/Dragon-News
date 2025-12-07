@@ -1,8 +1,20 @@
-import React from 'react';
-import { NavLink } from 'react-router';
+import React, { use } from 'react';
+import { Link, NavLink } from 'react-router';
 import navLogo from '../assets/user.png';
+import { AuthContext } from '../Routers/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
+  const { user, signinOut } = use(AuthContext);
+  const handleSignInOut = () => {
+    signinOut()
+      .then(() => {
+        toast.success('Sign-out successful.');
+      })
+      .catch((error) => {
+        toast(error);
+      });
+  };
   return (
     <div className="w-11/12 mx-auto flex justify-between mt-6">
       <div className=""></div>
@@ -13,7 +25,15 @@ const Navbar = () => {
       </div>
       <div className="flex gap-2">
         <img src={navLogo} alt="" />
-        <button className="btn btn-primary px-8">Login</button>
+        {user ? (
+          <button onClick={handleSignInOut} className="btn btn-primary px-8">
+            LogOut
+          </button>
+        ) : (
+          <Link to={'/auth/login'} className="btn btn-primary px-8">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );

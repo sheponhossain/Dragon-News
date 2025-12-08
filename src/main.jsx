@@ -14,6 +14,7 @@ import AuthProvider from './Routers/AuthProvider.jsx';
 import { ToastContainer } from 'react-toastify';
 import NewsDetails from './pages/NewsDetails.jsx';
 import PrivateRoutes from './Routers/PrivateRoutes.jsx';
+import Loading from './Components/Loading.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
         path: '/category/:id',
         element: <CategoryNews></CategoryNews>,
         loader: () => fetch('/news.json'),
+        hydrateFallbackElement: <Loading></Loading>,
       },
     ],
   },
@@ -61,6 +63,7 @@ const router = createBrowserRouter([
       </PrivateRoutes>
     ),
     loader: () => fetch('/news.json'),
+    hydrateFallbackElement: <Loading></Loading>,
   },
 ]);
 

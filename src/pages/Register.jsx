@@ -1,8 +1,9 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import AuthProvider, { AuthContext } from '../Routers/AuthProvider';
 
 const Register = () => {
+  const navigate = useNavigate();
   const { createUser } = use(AuthContext);
   const handleResigter = (event) => {
     event.preventDefault();
@@ -13,7 +14,10 @@ const Register = () => {
     const password = form.password.value;
     console.log(name, photo, email, password);
     createUser(email, password)
-      .then((res) => console.log(res.user))
+      .then((res) => {
+        console.log(res.user);
+        navigate('/');
+      })
       .catch((error) => console.log(error));
   };
 

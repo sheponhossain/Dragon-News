@@ -3,7 +3,7 @@ import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import { Link } from 'react-router';
 
 const NewsDetailsCard = ({ news }) => {
-  console.log(news);
+  //   console.log(news);
   const { title, image_url, details } = news;
 
   return (

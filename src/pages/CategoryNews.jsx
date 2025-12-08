@@ -6,7 +6,7 @@ const CategoryNews = () => {
   const [CategoryNewsData, setCategoryNewsData] = useState([]);
   const { id } = useParams();
   const data = useLoaderData();
-  console.log(data);
+  // console.log(data);
 
   useEffect(() => {
     if (!data) {
@@ -17,7 +17,7 @@ const CategoryNews = () => {
       return;
     } else if (id == '1') {
       const filteredData = data.filter(
-        (news) => news.others.is_today_pick == id
+        (news) => news.others.is_today_pick == true
       );
       setCategoryNewsData(filteredData);
     } else {
